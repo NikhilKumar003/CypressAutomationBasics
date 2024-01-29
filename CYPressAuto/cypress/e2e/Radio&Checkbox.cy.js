@@ -13,6 +13,7 @@ describe('Radiobuttons',()=>{
         cy.get("#radio-button1").should('not.be.checked')
     })
 
+    
     it('CheckBox',()=>{
         cy.visit("https://qa-automation-practice.netlify.app/checkboxes")
         //check-box visible
@@ -23,5 +24,15 @@ describe('Radiobuttons',()=>{
         cy.get("#checkbox3").check().should('be.checked')
         //unselect checkbox
         cy.get("#checkbox1").uncheck().should('not.be.checked')
+    })
+    it('SelectAllCheckBox',()=>{
+        cy.visit("https://qa-automation-practice.netlify.app/checkboxes")
+        //select all check-box
+        cy.get(".form-check-input").check().should('be.checked')
+        cy.get(".form-check-input").uncheck().should('not.be.checked')
+        //select first & last checkbox
+        cy.get(".form-check-input").first().check().should('be.checked')
+        cy.get(".form-check-input").last().check().should('be.checked')
+       
     })
 })
